@@ -12,19 +12,28 @@ class FileStorage:
 
     def all(self):
         '''returns the dictionary __objects'''
-        pass
+        return FileStorage.__objects
 
     def new(self, obj):
         '''sets in __objects the obj with key <obj class name>.id'''
-        pass
+        key = "{}.{}".format(type(obj).__name__, obj.id)
+        FileStorage.__objects[key] = obj
 
     def save(self):
         '''serializes __objects to the JSON file (path: __file_path)'''
-        pass
+        ser_obj = {key: obj.to_dict()
+                   for key, obj in FileStorage.__objects.items()}
+        with open(FileStorage.__file_path, 'w') as file:
+            json.dump(ser_obj, file)
 
     def reload(self):
         ''' 
         deserializes the JSON file to __objects (only if the JSON file (__file_path) exists ; 
         otherwise, do nothing. If the file doesn’t exist, no exception should be raised)
         '''
-        pass
+        with open(FileStorage.__file_path) as file:
+            data = json.load(file)
+            for key, value in data.items():
+                cls = key.spit('')
+                obj = globals()[cls](**value)
+                FileStorage.__objects[key] = obj
