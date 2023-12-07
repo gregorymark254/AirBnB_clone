@@ -2,7 +2,6 @@
 import cmd
 from models.base_model import BaseModel
 from models import storage
-from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
@@ -89,6 +88,10 @@ class HBNBCommand(cmd.Cmd):
                   if args[0] == key.split('.')[0]])
 
     def do_update(self, arg):
+        """
+        Update an instance based on the class name and id by adding or updating attribute (save the change into the JSON file).
+        Usage: update <class name> <id> <attribute name> "<attribute value>"
+        """
         args = arg.split()
         if len(args) == 0:
             print("** class name missing **")
