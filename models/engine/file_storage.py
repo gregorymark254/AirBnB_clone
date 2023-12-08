@@ -38,3 +38,12 @@ class FileStorage:
                     cls_obj = globals()[cls_name]
                     obj_instance = cls_obj(**value)
                     self.__objects[key] = obj_instance
+
+    def classes(self):
+        '''Returns a list of class names.'''
+        return [key.split('.')[0] for key in self.__objects.keys()]
+
+
+# Creating an instance for file storage
+storage = FileStorage()
+storage.reload()
