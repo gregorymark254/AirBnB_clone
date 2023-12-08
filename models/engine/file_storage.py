@@ -34,8 +34,8 @@ class FileStorage:
             with open(self.__file_path, 'r') as file:
                 data = json.load(file)
                 for key, value in data.items():
-                    cls_name = key.split('.')
-                    cls_obj = globals()[cls_name]
+                    class_name = key.split('.')
+                    cls_obj = globals()[class_name]
                     obj_instance = cls_obj(**value)
                     self.__objects[key] = obj_instance
 

@@ -2,13 +2,6 @@
 import cmd
 import json
 from models.engine.file_storage import storage
-# from models.base_model import BaseModel
-# from models.user import User
-# from models.state import State
-# from models.city import City
-# from models.amenity import Amenity
-# from models.place import Place
-# from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
@@ -101,8 +94,12 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
 
-        instances = [str(obj) for obj in storage.all().values()
-                     if not args or type(obj).__name__ == args[0]]
+        class_name = args[0]
+        if class_name not in storage.all():
+            print("[]")
+            return
+
+        instances = [str(obj) for obj in storage.all()[class_name].values()]
         print(instances)
 
     def do_update(self, arg):
