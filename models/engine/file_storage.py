@@ -38,3 +38,29 @@ class FileStorage:
                     cls_obj = globals()[cls_name]
                     obj_instance = cls_obj(**value)
                     self.__objects[key] = obj_instance
+
+    def classes(self):
+        '''Returns a list of class names.'''
+        from models.base_model import BaseModel
+        from models.user import User
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.place import Place
+        from models.review import Review
+
+        classes = {
+            'BaseModel': BaseModel,
+            'User': User,
+            'State': State,
+            'City': City,
+            'Amenity': Amenity,
+            'Place': Place,
+            'Review': Review,
+        }
+        return classes
+
+
+# Creating an instance for file storage
+storage = FileStorage()
+storage.reload()
