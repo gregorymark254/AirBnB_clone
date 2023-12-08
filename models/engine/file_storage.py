@@ -30,14 +30,17 @@ class FileStorage:
         deserializes the JSON file to __objects (only if the JSON file (__file_path) exists ; 
         otherwise, do nothing. If the file doesn’t exist, no exception should be raised)
         '''
-        if isfile(self.__file_path):
-            with open(self.__file_path, 'r') as file:
-                data = json.load(file)
-                for key, value in data.items():
-                    class_name = key.split('.')
-                    cls_obj = globals()[class_name]
-                    obj_instance = cls_obj(**value)
-                    self.__objects[key] = obj_instance
+        with open(FileStorage.__file_path, mode='r', encoding='utf-8') as file:
+            data = json.load(file)
+            for key, value in data.items():
+                # Ensure the key is a string in the format "ClassName.id"
+                if '.' in key:
+                    class_name, _ = key.split('.', 1)
+                    # Check if the class exists before attempting to create an instance
+                    if class_name in globals():
+                        cls_obj = globals()[class_name]
+                        instance = cls_obj(**value)
+                        FileStorage.__objects[key] = instance
 
     def classes(self):
         '''Returns a list of class names.'''
