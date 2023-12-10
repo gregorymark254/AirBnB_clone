@@ -13,7 +13,7 @@ class TestBaseModel(unittest.TestCase):
         #check if id is unique for each instance
         self.assertNotEqual(instance1.id, instance2.id)
 
-"""   def test_object_creation(self):
+    def test_object_creation(self):
         instance = BaseModel()
         self.assertIsInstance(instance.id, str)
         self.assertIsInstance(instance.created_at, datetime)
@@ -44,7 +44,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(instance.id, '123')
         self.assertEqual(instance.created_at.isoformat(), '2023-12-01T00:00:00.000000')
         self.assertEqual(instance.updated_at.isoformat(), '2023-12-01T00:00:00.000000')
-"""
+
 if __name__ == '__main__':
     unittest.main()
-
