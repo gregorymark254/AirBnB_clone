@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"BaseModel.13bc2377-d85b-42ac-9bc1-419d789c967e": {"id": "13bc2377-d85b-42ac-9bc1-419d789c967e", "created_at": "2023-12-10T15:08:05.193689", "updated_at": "2023-12-10T15:08:05.193742", "__class__": "BaseModel"}, "BaseModel.99d1314e-541c-4fc1-921e-b58dbc8c32b2": {"id": "99d1314e-541c-4fc1-921e-b58dbc8c32b2", "created_at": "2023-12-10T15:08:05.210537", "updated_at": "2023-12-10T15:08:05.210607", "__class__": "BaseModel"}}
+=======
+{"User.b7c5cc7f-33ef-4b5d-9f99-668e6b52b61b": {"id": "b7c5cc7f-33ef-4b5d-9f99-668e6b52b61b", "created_at": "2023-12-10T14:38:30.019099", "updated_at": "2023-12-10T14:38:30.019125", "__class__": "User"}}
+>>>>>>> 26129b3ed00e356e4334daa5d0a68af0a3a72649
