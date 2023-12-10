@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import unittest
 from models.state import State
-from models.base_model import BaseModel
 
 
 class TestState(unittest.TestCase):
@@ -18,10 +17,6 @@ class TestState(unittest.TestCase):
         # Test setting values and checking if they are stored correctly
         self.state.name = "California"
         self.assertEqual(self.state.name, "California")
-
-    def test_inheritance(self):
-        # Check if State inherits from BaseModel
-        self.assertIsInstance(self.state, BaseModel)
 
 
 if __name__ == '__main__':

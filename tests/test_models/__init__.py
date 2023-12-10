@@ -6,7 +6,7 @@ class TestFileStorageReload(unittest.TestCase):
 
     def setUp(self):
         # Ensure a clean slate for each test
-        storage.reset()
+        storage.reload()
 
     def test_reload_empty(self):
         # Test reloading when the storage is initially empty

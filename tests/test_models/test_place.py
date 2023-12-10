@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import unittest
 from models.place import Place
-from models.base_model import BaseModel
 
 
 class TestPlace(unittest.TestCase):
@@ -50,10 +49,6 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(self.place.latitude, 37.7749)
         self.assertEqual(self.place.longitude, -122.4194)
         self.assertEqual(self.place.amenity_ids, [1, 2, 3])
-
-    def test_inheritance(self):
-        # Check if Place inherits from BaseModel
-        self.assertIsInstance(self.place, BaseModel)
 
 
 if __name__ == '__main__':

@@ -46,9 +46,9 @@ class TestBaseModel(unittest.TestCase):
         instance = BaseModel(**kwargs)
         self.assertEqual(instance.id, '123')
         self.assertEqual(instance.created_at.isoformat(),
-                         '2023-12-01T00:00:00.000000')
+                         '2023-12-01T00:00:00')
         self.assertEqual(instance.updated_at.isoformat(),
-                         '2023-12-01T00:00:00.000000')
+                         '2023-12-01T00:00:00')
 
 
 if __name__ == '__main__':

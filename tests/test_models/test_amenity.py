@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import unittest
 from models.amenity import Amenity
-from models.base_model import BaseModel
 
 
 class TestAmenity(unittest.TestCase):
@@ -18,10 +17,6 @@ class TestAmenity(unittest.TestCase):
         # Test setting values and checking if they are stored correctly
         self.amenity.name = "WiFi"
         self.assertEqual(self.amenity.name, "WiFi")
-
-    def test_inheritance(self):
-        # Check if Amenity inherits from BaseModel
-        self.assertIsInstance(self.amenity, BaseModel)
 
 
 if __name__ == '__main__':

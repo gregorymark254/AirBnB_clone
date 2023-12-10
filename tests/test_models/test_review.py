@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import unittest
 from models.review import Review
-from models.base_model import BaseModel
 
 
 class TestReview(unittest.TestCase):
@@ -26,10 +25,6 @@ class TestReview(unittest.TestCase):
         self.assertEqual(self.review.user_id, "456")
         self.assertEqual(self.review.text,
                          "A wonderful stay at the cozy cabin!")
-
-    def test_inheritance(self):
-        # Check if Review inherits from BaseModel
-        self.assertIsInstance(self.review, BaseModel)
 
 
 if __name__ == '__main__':

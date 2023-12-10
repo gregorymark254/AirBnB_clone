@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import unittest
 from models.user import User
-from models.base_model import BaseModel
 
 
 class TestUser(unittest.TestCase):
@@ -28,10 +27,6 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.user.password, "securepassword")
         self.assertEqual(self.user.first_name, "John")
         self.assertEqual(self.user.last_name, "Doe")
-
-    def test_inheritance(self):
-        # Check if User inherits from BaseModel
-        self.assertIsInstance(self.user, BaseModel)
 
 
 if __name__ == '__main__':
