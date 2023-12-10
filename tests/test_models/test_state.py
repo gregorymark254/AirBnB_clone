@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import unittest
 from models.state import State
+from models.base_model import BaseModel
 
 
 class TestState(unittest.TestCase):
@@ -8,6 +9,19 @@ class TestState(unittest.TestCase):
 
     def setUp(self):
         self.state = State
+
+    def test_default_values(self):
+        # Check if the default values are set correctly
+        self.assertEqual(self.state.name, "")
+
+    def test_set_values(self):
+        # Test setting values and checking if they are stored correctly
+        self.state.name = "California"
+        self.assertEqual(self.state.name, "California")
+
+    def test_inheritance(self):
+        # Check if State inherits from BaseModel
+        self.assertIsInstance(self.state, BaseModel)
 
 
 if __name__ == '__main__':
