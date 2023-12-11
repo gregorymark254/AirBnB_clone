@@ -108,11 +108,15 @@ class HBNBCommand(cmd.Cmd):
         based or not on the class name.
         '''
         args = arg.split()
-        if args and args[0] not in storage.classes():
-            print("** class doesn't exist **")
+        if not args:
+            print("** class name missing **")
             return
 
         class_name = args[0]
+        if class_name not in storage.classes():
+            print("** class doesn't exist **")
+            return
+
         if class_name not in storage.all():
             print("[]")
             return
