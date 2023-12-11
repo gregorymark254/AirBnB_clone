@@ -15,7 +15,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_EOF(self, arg):
-        """
+        """+
         Exit the program when EOF (Ctrl+D) is encountered
         """
         print()
@@ -29,8 +29,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, arg):
         '''
-        Creates a new instance of BaseModel,
-        saves it (to the JSON file) and prints the id.
+        Creates a new instance of BaseModel,saves
+        it (to the JSON file) and prints the id.
         '''
         args = arg.split()
         if not args or args[0] not in storage.classes():

@@ -4,7 +4,10 @@ from os.path import isfile
 
 
 class FileStorage:
-    '''Serializes instances to a JSON file and deserializes JSON file to instances.'''
+    '''
+    Serializes instances to a JSON file
+    and deserializes JSON file to instances.
+    '''
     __file_path = "file.json"
     __objects = {}
 
@@ -26,9 +29,10 @@ class FileStorage:
             json.dump(ser_obj, file)
 
     def reload(self):
-        ''' 
-        deserializes the JSON file to __objects (only if the JSON file (__file_path) exists ; 
-        otherwise, do nothing. If the file doesn’t exist, no exception should be raised)
+        '''
+        deserializes the JSON file to __objects (only if the JSON
+        file (__file_path) exists ; otherwise, do nothing.
+        If the file doesn’t exist,no exception should be raised)
         '''
         with open(FileStorage.__file_path, mode='r', encoding='utf-8') as file:
             data = json.load(file)
@@ -36,7 +40,8 @@ class FileStorage:
                 # Ensure the key is a string in the format "ClassName.id"
                 if '.' in key:
                     class_name, _ = key.split('.', 1)
-                    # Check if the class exists before attempting to create an instance
+                    # Check if the class exists before
+                    # attempting to create an instance
                     if class_name in globals():
                         cls_obj = globals()[class_name]
                         instance = cls_obj(**value)
