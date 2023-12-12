@@ -6,13 +6,13 @@ class HBNBCommand(cmd.Cmd):
     '''Entry point of the command interpreter'''
     prompt = "(hbnb) "
 
-    def do_quit(self, args):
+    def do_quit(self, _):
         """
         Quit command to exit the program
         """
         return True
 
-    def do_EOF(self, arg):
+    def do_EOF(self, _):
         """
         Exit the program when EOF (Ctrl+D) is encountered
         """
