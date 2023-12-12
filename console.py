@@ -29,7 +29,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_help(self, arg):
         """
-        List available commands with "help" or detailed help with "help cmd".
+        List available commands with "help"
+        or detailed help with "help cmd".
         """
         if arg:
             print(self.namemap.get(arg).__doc__)
