@@ -35,7 +35,7 @@ class FileStorage:
         If the file doesn’t exist,no exception should be raised)
         '''
         if isfile(self.__file_path):
-            with open(self.__file_path, mode='r', encoding='utf-8') as file:
+            with open(FileStorage.__file_path, mode='r', encoding='utf-8') as file:
                 data = json.load(file)
                 for key, value in data.items():
                     # Ensure the key is a string in the format "ClassName.id"
@@ -46,7 +46,7 @@ class FileStorage:
                         if class_name in globals():
                             cls_obj = globals()[class_name]
                             instance = cls_obj(**value)
-                            self.__objects[key] = instance
+                            FileStorage.__objects[key] = instance
 
     def classes(self):
         '''Returns a list of class names.'''
