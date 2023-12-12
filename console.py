@@ -60,7 +60,7 @@ class HBNBCommand(cmd.Cmd):
 
             # Check if the instance is a dictionary
             if isinstance(new_instance, dict):
-                print("** Failed to create instance. Check class definition. **")
+                print("** Failed to create instance. **")
                 return
 
             storage.new(new_instance)
