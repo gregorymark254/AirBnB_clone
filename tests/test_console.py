@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 from io import StringIO
 from console import HBNBCommand
 
@@ -42,6 +42,50 @@ class TestHBNBCommand(unittest.TestCase):
                 with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
                     HBNBCommand().cmdloop()
                     self.assertEqual(mock_stdout.getvalue(), "(hbnb) ")
+
+    @patch('sys.stdout', new_callable=Mock)
+    def test_create_success(self, mock_stdout):
+        console = HBNBCommand()
+        with patch('models.engine.file_storage.storage.new') as mock_new, \
+                patch('models.engine.file_storage.storage.save') as mock_save:
+            console.do_create("BaseModel")
+            mock_new.assert_called_once()
+            mock_save.assert_called_once()
+            created_id = mock_stdout.getvalue().strip()
+            self.assertTrue(created_id)
+
+    @patch('sys.stdout', new_callable=Mock)
+    def test_create_class_not_exist(self, mock_stdout):
+        console = HBNBCommand()
+        with patch('models.engine.file_storage.storage.new') as mock_new, \
+                patch('models.engine.file_storage.storage.save') as mock_save:
+            console.do_create("NonExistentClass")
+            mock_new.assert_not_called()
+            mock_save.assert_not_called()
+            self.assertIn("** class doesn't exist **", mock_stdout.getvalue())
+
+    @patch('sys.stdout', new_callable=Mock)
+    def test_show_success(self, mock_stdout):
+        console = HBNBCommand()
+        with patch('models.engine.file_storage.storage.all') as mock_all:
+            mock_all.return_value = {'BaseModel.123': 'test_instance'}
+            console.do_show("BaseModel 123")
+            self.assertIn(
+                "['BaseModel', '123', 'BaseModel.123', {'BaseModel.123': 'test_instance'}]", mock_stdout.getvalue())
+
+    @patch('sys.stdout', new_callable=Mock)
+    def test_show_class_not_exist(self, mock_stdout):
+        console = HBNBCommand()
+        with patch('models.engine.file_storage.storage.all') as mock_all:
+            console.do_show("NonExistentClass 123")
+            self.assertIn("** class doesn't exist **", mock_stdout.getvalue())
+
+    @patch('sys.stdout', new_callable=Mock)
+    def test_show_instance_id_missing(self, mock_stdout):
+        console = HBNBCommand()
+        with patch('models.engine.file_storage.storage.all') as mock_all:
+            console.do_show("BaseModel")
+            self.assertIn("** instance id missing **", mock_stdout.getvalue())
 
 
 if __name__ == '__main__':
