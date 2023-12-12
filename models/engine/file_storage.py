@@ -71,3 +71,4 @@ class FileStorage:
 
 # Creating an instance for file storage
 storage = FileStorage()
+storage.reload()
