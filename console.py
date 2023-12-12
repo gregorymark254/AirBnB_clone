@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import cmd
-from models.engine.file_storage import storage
 
 
 class HBNBCommand(cmd.Cmd):
@@ -14,7 +13,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_EOF(self, arg):
-        """+
+        """
         Exit the program when EOF (Ctrl+D) is encountered
         """
         print()
@@ -25,6 +24,12 @@ class HBNBCommand(cmd.Cmd):
         Do nothing on empty line + ENTER
         """
         pass
+
+    def do_help(self, arg):
+        """
+        List available commands with "help" or detailed help with "help cmd".
+        """
+        super().do_help(arg)
 
 
 if __name__ == '__main__':
