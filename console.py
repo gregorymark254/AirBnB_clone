@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import cmd
-import json
 from models.engine.file_storage import storage
 
 
