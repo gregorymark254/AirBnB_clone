@@ -29,7 +29,16 @@ class HBNBCommand(cmd.Cmd):
         """
         List available commands with "help" or detailed help with "help cmd".
         """
-        super().do_help(arg)
+        if arg:
+            print(self.namemap.get(arg).__doc__)
+        else:
+            print("List available commands: quit, EOF, help")
+
+    def default(self, line):
+        """
+        Handle unknown commands
+        """
+        print("** Unknown command: {}".format(line))
 
 
 if __name__ == '__main__':
