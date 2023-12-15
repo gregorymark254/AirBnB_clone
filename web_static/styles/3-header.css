@@ -9,7 +9,7 @@ header {
     background: url("../images/logo.png") no-repeat;
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-items: left;
     height: 100px;
     padding-left: 20px;
 }
