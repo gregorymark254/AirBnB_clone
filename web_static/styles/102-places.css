@@ -131,5 +131,34 @@
 }
 
 @media only screen and (min-width: 320px) and (max-width: 480px) { 
-    
+    .article {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .places article {
+        width: 390px;
+        padding: 30px 0;
+        margin: 20px 0;
+        border: 1px solid #FF5A5F;
+        border-radius: 4px;
+        position: relative;
+    }
+    .user, .description{
+        margin: 8px;
+    }
+    .amenitie, .reviews{
+        margin-top: 40px;
+    }
+    .amenitie h2, .reviews h2 {
+        font-size: 16px;
+        border-bottom: 1px solid  #DDDDDD;
+        text-align: left;
+        padding: 10px;
+    }
+    .amenitie ul, .reviews ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 4px;
+    }
 }
